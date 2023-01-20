@@ -24,7 +24,7 @@ export const CardCoffeContainer = styled.div`
       list-style: none;
       display: flex;
       justify-content: space-between;
-      gap: 4;
+      gap: 0.5rem;
       margin-bottom: 1rem;
       li{
         background-color: ${props => props.theme["yellow-light"]};
@@ -108,13 +108,26 @@ export const CardCoffeContainer = styled.div`
           text-align: center;
         }
 
-        input[type=text]{
+        input[type=number]{
           border: 0;
           width: 20px;
           background-color: transparent;
           
           text-align: center;
           color: ${props => props.theme["base-title"]};
+          
+
+          -moz-appearance: textfield;
+
+          &:focus{
+            outline: none;
+          }
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
         }
       }
 

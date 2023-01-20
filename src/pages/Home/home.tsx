@@ -8,12 +8,13 @@ import {
 } from "./styles";
 import { Coffee, Package, ShoppingCart, Timer } from "phosphor-react";
 import { CardCoffe } from "../../components/Home/CardCoffeList/CardCoffe";
-import { coffeList, CoffeListType } from "../../fixtures/coffe-list";
+import { Coffe, coffeList } from "../../fixtures/coffe-list";
 
-const renderCards = (coffes: CoffeListType[]) => {
+const renderCards = (coffes: Coffe[]) => {
   return coffes.map((coffe, i) => {
     return (
       <CardCoffe
+        id={coffe.id}
         img={coffe.img}
         title={coffe.title}
         description={coffe.description}
