@@ -69,3 +69,25 @@ export const ImgContainer = styled.div`
     width: 476px;
   }
 `
+
+export const CoffeContainer = styled.div`
+
+  .coffesList{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  h1 {
+    font-family: 'Baloo 2';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 2rem;
+    line-height: 130%;
+    color: ${props => props.theme["base-subtitle"]};
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+  }
+`
