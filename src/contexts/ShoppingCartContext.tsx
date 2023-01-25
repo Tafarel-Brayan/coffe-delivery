@@ -9,7 +9,7 @@ import { shoppingCartReducer } from "../reducers/ShoppingCart/ShoppingCartReduce
 type ShoppingCartType = {
   coffe: Coffe[];
   qty: number;
-  addCoffe: (coffe: Coffe) => void;
+  addItemCart: (coffe: Coffe, qty: number) => void;
   removeCoffe: (id: string) => void;
 };
 
@@ -27,8 +27,8 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
 
   const { coffe, qty } = coffeState;
 
-  const addCoffe = (coffe: Coffe) => {
-    dispatch(addNewCoffeAction(coffe));
+  const addItemCart = (coffe: Coffe, qty: number) => {
+    dispatch(addNewCoffeAction(coffe, qty));
   };
 
   const removeCoffe = (id: string) => {
@@ -36,7 +36,9 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
   };
 
   return (
-    <ShoppingCartContext.Provider value={{ coffe, qty, addCoffe, removeCoffe }}>
+    <ShoppingCartContext.Provider
+      value={{ coffe, qty, addItemCart, removeCoffe }}
+    >
       {children}
     </ShoppingCartContext.Provider>
   );

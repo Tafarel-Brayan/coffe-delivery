@@ -10,17 +10,10 @@ const renderTags = (id: string, tags: TagsType[]) => {
   });
 };
 
-export const CardCoffe = ({
-  id,
-  img,
-  title,
-  description,
-  value,
-  tags,
-}: Coffe) => {
-  const { addCoffe } = useContext(ShoppingCartContext);
-
+export const CardCoffe = (coffe: Coffe) => {
+  const { addItemCart } = useContext(ShoppingCartContext);
   const [qty, setQty] = useState(0);
+
   const handleQty = (action: string) => {
     if (action === "add") {
       setQty(qty + 1);
@@ -37,18 +30,25 @@ export const CardCoffe = ({
     }
   };
 
+  const handleAddItemCart = async (coffe: Coffe, qty: number) => {
+    const newCoffe = { ...coffe };
+    newCoffe.qty = qty;
+
+    addItemCart(newCoffe, qty);
+  };
+
   return (
     <CardCoffeContainer>
       <span className="image">
-        <img src={`./src/assets/coffes/${img}`} alt={img} />
+        <img src={`./src/assets/coffes/${coffe.img}`} alt={coffe.img} />
       </span>
       <span className="tags">
-        <ul>{renderTags(id, tags)}</ul>
+        <ul>{renderTags(coffe.id, coffe.tags)}</ul>
       </span>
-      <span className="title">{title}</span>
-      <span className="description">{description}</span>
+      <span className="title">{coffe.title}</span>
+      <span className="description">{coffe.description}</span>
       <div className="buy">
-        <span className="value">{value}</span>
+        <span className="value">{coffe.value}</span>
         <span className="buttons">
           <span className="countdown">
             <span className="minus" onClick={() => handleQty("remove")}>
@@ -56,7 +56,6 @@ export const CardCoffe = ({
             </span>
             <input
               type="number"
-              // defaultValue={qty}
               value={qty}
               onChange={(e) => onChangeQty(parseInt(e.currentTarget.value))}
             />
@@ -64,7 +63,7 @@ export const CardCoffe = ({
               +
             </span>
           </span>
-          <button type="button">
+          <button type="button" onClick={() => handleAddItemCart(coffe, qty)}>
             <ShoppingCart weight="fill" />
           </button>
         </span>
