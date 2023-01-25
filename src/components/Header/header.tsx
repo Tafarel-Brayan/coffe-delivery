@@ -7,7 +7,6 @@ import { ShoppingCartContext } from "../../contexts/ShoppingCartContext";
 
 export const Header = () => {
   const { qty } = useContext(ShoppingCartContext);
-  console.log(qty);
 
   return (
     <HeaderContainer>
@@ -16,10 +15,10 @@ export const Header = () => {
       <nav>
         <span>
           <MapPin size={22} weight="fill" />
-          Porto alegre, RS
+          Manaus, AM
         </span>
 
-        <NavLink to="/">
+        <NavLink to="/checkout">
           <ShoppingCart size={22} weight="fill" />
           {qty > 0 && <span className="badge">{qty}</span>}
         </NavLink>
