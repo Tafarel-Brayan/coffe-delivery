@@ -10,7 +10,9 @@ export const Header = () => {
 
   return (
     <HeaderContainer>
-      <img src={logoCoffeDelivery} alt="logo" />
+      <NavLink to="/">
+        <img src={logoCoffeDelivery} alt="logo" />
+      </NavLink>
 
       <nav>
         <span>

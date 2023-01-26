@@ -1,17 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ShoppingCartContext } from "../../contexts/ShoppingCartContext";
 import { ButtonCheckout } from "../../pages/Checkout/styles";
 
 interface ButtonProps {
   children: React.ReactNode;
-  isSelected?: boolean;
   id: string;
 }
 
-export const Button = ({ isSelected, children, id }: ButtonProps) => {
-  const selected = isSelected ? "isSelected" : "notSelected";
+export const Button = ({ children, id }: ButtonProps) => {
+  const { paymentMode, setPayment } = useContext(ShoppingCartContext);
+  const selected = paymentMode === id ? "isSelected" : "notSelected";
 
   const handleClick = (id: string) => {
-    console.log(id);
+    setPayment(id);
   };
 
   return (
