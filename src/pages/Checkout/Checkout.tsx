@@ -1,4 +1,4 @@
-import { Bank, CreditCard, MapPinLine, Money } from "phosphor-react";
+import { MapPinLine } from "phosphor-react";
 import { useForm } from "react-hook-form";
 import { Button } from "../../components/Checkout/Button";
 import { DescriptionBox } from "../../components/Checkout/DescriptionBox";
@@ -110,10 +110,23 @@ export const Checkout = () => {
         <RightDiv className="rightDiv">
           <h3>Café selecionados</h3>
           <ItemsContainer>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint
-            provident cumque optio eligendi architecto, sequi ad expedita
-            aliquid consectetur odio quasi quis perferendis sit iure? Excepturi
-            eos molestias repudiandae libero.
+            <ul>
+              <li>Item 1</li>
+              <li>Item 2</li>
+            </ul>
+
+            <div className="totals">
+              <div>
+                <span>Total de itens</span>{" "}
+                <span className="subTotal">R$ 29,70</span>
+              </div>
+              <div>
+                <span>Entrega</span> <span className="subTotal">R$ 3,50</span>
+              </div>
+              <div>
+                <span>Total</span> <span className="grandTotal">R$ 33,20</span>
+              </div>
+            </div>
           </ItemsContainer>
         </RightDiv>
       </CheckoutContainer>

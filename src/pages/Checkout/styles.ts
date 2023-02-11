@@ -83,6 +83,26 @@ export const PaymentContainer = styled(CardCommonsProps)`
 
 export const ItemsContainer = styled(CardCommonsProps)`
   border-radius: 6px 44px;
+
+  .totals{
+    display: block;
+    margin-top: 12px;
+    
+    color: ${props => props.theme["base-text"]};
+    font-size: 0.875rem;
+    
+    div{
+      display: flex;
+      justify-content: space-between;
+      padding-top: 12px;
+
+      .subTotal{
+        font-size: 1rem;
+        font-weight: 700;
+      }
+    }
+   
+  }
 `
 
 const COLORS_PROPS_LIST = {
